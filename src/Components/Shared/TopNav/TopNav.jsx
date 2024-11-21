@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/Provider';
 
 const TopNav = () => {
+    const {user} = useContext(AuthContext)
+    console.log(user);
+    
     return (
         <div className="px-4 mx-auto max-w-7xl sm:px-6">
             <div className="relative pt-6 pb-16 sm:pb-24">
@@ -36,7 +40,9 @@ const TopNav = () => {
                         </li>
                     </div>
                     <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
-                    <h4>user</h4>
+                   <div className='w-10 h-10 rounded-full'>
+                    <img src={user?.photoURL} alt=""  className='w-10 h-10 rounded-full'/>
+                   </div>
                         <div className="inline-flex rounded-full shadow">
                             
                             <div 
